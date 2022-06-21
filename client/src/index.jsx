@@ -7,10 +7,7 @@ const root = createRoot(document.getElementById("root"));
 // Huzzah for jsx!
 function App() {
  return (
-  <>
-    <h1>What to watch</h1>
-    <Home />
-  </>
+  <Home />
   )
 }
 

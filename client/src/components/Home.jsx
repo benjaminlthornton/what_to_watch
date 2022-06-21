@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import axios from 'axios';
 
 // Huzzah for jsx!
@@ -48,7 +48,22 @@ class Home extends React.Component {
 
   render() {
    return (
-    <h2>list</h2>
+     <>
+     <h1>What to Watch</h1>
+      <div>Search placeholder</div>
+      <h2>To Watch</h2>
+      <div className="toWatch">
+        <ul className="userShowList">
+          <li>to watchshows</li>
+        </ul>
+      </div>
+      <h2>Watched</h2>
+      <div className="Watched">
+        <ul className="userShowList">
+          <li>watched shows</li>
+        </ul>
+      </div>
+    </>
     )
   }
 }
