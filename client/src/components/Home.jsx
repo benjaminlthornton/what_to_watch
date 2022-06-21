@@ -1,13 +1,14 @@
 import React from 'react';
 import axios from 'axios';
+import dummy from '../../dist/assets/dummydata'
 
 // Huzzah for jsx!
 class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      watched: [],
-      toWatch: [],
+      watched: [dummy],
+      toWatch: [dummy],
       user: '',
     }
   }
