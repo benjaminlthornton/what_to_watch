@@ -1,5 +1,4 @@
 import React from 'react';
-const jikanjs = require('@mateoaranda/jikanjs');
 
 export default function WatchedCard({ show }) {
   return (

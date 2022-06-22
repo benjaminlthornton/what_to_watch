@@ -1,16 +1,13 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import dummy from '../../dist/assets/dummydata'
-import ToWatchCard from './ToWatch'
-import WatchedCard from './Watched'
-import Search from './Search'
-const jikanjs = require('@mateoaranda/jikanjs');
+import React, { useState, useEffect } from 'react';
+import Header from './Header';
+import Sidebar from './Sidebar';
+import Home from './HomePage/Home';
 
-// Huzzah for jsx!
-export default function Home() {
-  const [watched, setWatched] = useState([dummy]);
-  const [toWatch, setToWatch] = useState([dummy]);
-  const [searched, setSearched] = useState([])
+export default function Main() {
+	const [animeList, SetAnimeList] = useState([]);
+	const [topAnime, SetTopAnime] = useState([]);
+	const [search, SetSearch] = useState("");
+
   const [user, setUser] = useState('');
 
  function retrieveWatched(user) {
@@ -117,32 +114,45 @@ export default function Home() {
     });
   }
 
-  function handleSearch(e) {
-    e.preventDefault();
-    setSearched(e.target.value);
-  };
 
-   return (
-     <>
-     <h1>What to Watch</h1>
-      <h2>Search placeholder</h2>
-      <Search searched ={searched} handleSearch={handleSearch} setSearched={setSearched}/>
-      <h2>To Watch</h2>
-      <div className="toWatch">
-        <ul className="userShowList">
-          {toWatch.map((show) => (
-            <ToWatchCard key={show.data.mal_id} show={show} />
-          ))}
-        </ul>
-      </div>
-      <h2>Watched</h2>
-      <div className="Watched">
-        <ul className="userShowList">
-          {toWatch.map((show) => (
-            <WatchedCard key={show.data.mal_id} show={show} />
-          ))}
-        </ul>
-      </div>
-    </>
-    )
+	const GetTopAnime = async () => {
+    // console.log("inside get top anime")
+		const temp = await fetch(`https://api.jikan.moe/v4/top/anime/1/bypopularity`)
+			.then(res => res.json());
+
+		SetTopAnime(temp.top.slice(0, 5));
+	}
+
+	const HandleSearch = e => {
+		e.preventDefault();
+
+		FetchAnime(search);
+	}
+
+	const FetchAnime = async (query) => {
+		const temp = await fetch(`https://api.jikan.moe/v4/search/anime?q=${query}&order_by=title&sort=asc&limit=10`)
+			.then(res => res.json());
+
+		SetAnimeList(temp.results);
+	}
+
+	useEffect(() => {
+    // console.log('inside useEffect')
+		GetTopAnime();
+	}, []);
+
+	return (
+		<div className="App">
+			<Header />
+			<div className="content-wrap">
+				<Sidebar
+					topAnime={topAnime} />
+				<Home
+					HandleSearch={HandleSearch}
+					search={search}
+					SetSearch={SetSearch}
+					animeList={animeList} />
+			</div>
+		</div>
+	);
 }

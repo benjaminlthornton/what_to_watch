@@ -1,13 +1,12 @@
 import { createRoot } from "react-dom/client";
 import React from 'react'
-import Home from './components/Home'
+import Main from './components/Main'
 
 const root = createRoot(document.getElementById("root"));
 
-// Huzzah for jsx!
 function App() {
  return (
-  <Home />
+  <Main />
   )
 }
 
