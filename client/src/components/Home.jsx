@@ -117,13 +117,16 @@ export default function Home() {
     });
   }
 
-
+  function handleSearch(e) {
+    e.preventDefault();
+    setSearched(e.target.value);
+  };
 
    return (
      <>
      <h1>What to Watch</h1>
       <h2>Search placeholder</h2>
-      <Search setSearched={setSearched}/>
+      <Search searched ={searched} handleSearch={handleSearch} setSearched={setSearched}/>
       <h2>To Watch</h2>
       <div className="toWatch">
         <ul className="userShowList">

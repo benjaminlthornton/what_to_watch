@@ -1,10 +1,20 @@
 import React from 'react';
-const jikanjs = require('@mateoaranda/jikanjs');
 
-export default function Searched({setSearched}) {
+export default function Searched({ searched, setSearched, handleSearch }) {
   return (
-    <div className="search-bar">
-      Search bar
-    </div>
+      <form action="/" method="get">
+      <label htmlFor="header-search">
+          <span className="visually-hidden">Search Anime</span>
+      </label>
+      <input
+          value={searched}
+          onInput={e => setSearched(e.target.value)}
+          type="text"
+          id="header-search"
+          placeholder="Search blog posts"
+          name="s"
+      />
+      <button type="submit" className="submit" onSubmit={e => handleSearch(e)}>Search</button>
+    </form>
   )
 }
