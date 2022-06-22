@@ -1,19 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import dummy from '../../dist/assets/dummydata'
+import ToWatchCard from './toWatch'
+const jikanjs = require('@mateoaranda/jikanjs');
 
 // Huzzah for jsx!
-class Home extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      watched: [dummy],
-      toWatch: [dummy],
-      user: '',
-    }
-  }
+export default function Home() {
+  const [watched, setWatched] = useState([dummy]);
+  const [toWatch, setToWatch] = useState([dummy]);
+  const [searched, setSearced] = useState([])
+  const [user, setUser] = useState('');
 
-  retrieveWatched(user) {
+ function retrieveWatched(user) {
     axios({
       method: 'GET',
       url: '/watched',
@@ -22,32 +20,33 @@ class Home extends React.Component {
       }
     })
     .then((res) => {
-      this.setState({watched: [...res.data]});
+      setWatched((s) => s.concat(res.data.results));
     })
     .catch((err) => {
       console.log('Error, retrieveWatched:', err);
     });
   }
 
-  retrieveToWatch(user) {
+  function retrieveToWatch(user) {
     axios({
       method: 'GET',
-      url: '/watched',
+      url: '/towatch',
       data: {
         user
       }
     })
     .then((res) => {
-      this.setState({toWatch: [...res.data]});
+      setToWatch((s) => s.concat(res.data.results));
     })
     .catch((err) => {
       console.log('Error, retrieveToWatch:', err);
     });
   }
 
+  function addToWatch(e) {
+    setWatched((s) => s.concat(e.target.value));
+  }
 
-
-  render() {
    return (
      <>
      <h1>What to Watch</h1>
@@ -55,7 +54,9 @@ class Home extends React.Component {
       <h2>To Watch</h2>
       <div className="toWatch">
         <ul className="userShowList">
-          <li>to watchshows</li>
+          {toWatch.map((show) => (
+            <ToWatchCard key={show.data.mal_id} show={show} />
+          ))}
         </ul>
       </div>
       <h2>Watched</h2>
@@ -66,8 +67,4 @@ class Home extends React.Component {
       </div>
     </>
     )
-  }
 }
-
-
-export default Home;

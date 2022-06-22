@@ -13,12 +13,7 @@ app.use(express.static(path.join(__dirname, '../client/dist')));
 
 // Request variables
 const PORT = process.env.PORT || 3000;
-const apiUrl = 'https://api.jikan.moe/v4';
-const headers = {
-  headers: {
-    Authorization: process.env.TOKEN,
-  },
-};
+
 
 // Cookie parser middleware (Practice Apps: Part2 reuse)
 // session_id cookie is now accessible in every route -> req.session_id
@@ -46,16 +41,27 @@ const headers = {
 //   next();
 // });
 
-app.get('/anime/:{id}', (req, res) => {
-  axios.get(`${apiUrl}/anime/${req.params.id}`)
-  .then((anime) => {
-    res.send(anime.data);
-  })
-  .catch((err) => {
-    console.log('Error getting anime:', err.response.status);
-    res.sendStatus(err.response.status);
-  })
-})
+// app.get('/watched', (req, res) => {
+//   db.getUserWatched(req.query.user)
+//   .then((anime) => {
+//     res.send(anime.data);
+//   })
+//   .catch((err) => {
+//     console.log('Error getting anime:', err.response.status);
+//     res.sendStatus(err.response.status);
+//   })
+// })
+
+// app.get('/towatch', (req, res) => {
+//   db.getUserToWatch(req.query.user)
+//   .then((anime) => {
+//     res.send(anime.data);
+//   })
+//   .catch((err) => {
+//     console.log('Error getting anime:', err.response.status);
+//     res.sendStatus(err.response.status);
+//   })
+// })
 
 app.listen(PORT, () => {
   console.log(`Listening on: http://localhost:${PORT}`);

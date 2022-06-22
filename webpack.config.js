@@ -52,5 +52,9 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.json', '.jsx'],
+    fallback: { "https": require.resolve("https-browserify"),  "url": require.resolve("url/"),
+                "http": require.resolve("stream-http"), "buffer": require.resolve("buffer/")
+   },
+
   },
 };
