@@ -28,99 +28,132 @@ header {
 	}
 }
 
-main {
-  flex: 1 1 0%;
-  padding: 0px 16px;
+.content-wrap {
+	display: flex;
 
-  .main-head {
-    display: flex;
-    justify-content: flex-end;
+	aside {
+		flex: 1 1 250px;
+		max-width: 250px;
+		padding-right: 16px;
 
-    .search-box {
-      display: flex;
-      justify-content: flex-end;
-      flex: 1 1 0%;
+		nav {
+			padding-left: 16px;
+			padding-right: 16px;
 
-      .visually-hidden {
-        clip: rect(0 0 0 0);
-        clip-path: inset(50%);
-        height: 1px;
-        overflow: hidden;
-        position: absolute;
-        white-space: nowrap;
-        width: 1px;
-      }
+			h3 {
+				color: #313131;
+				font-size: 24px;
+				margin-bottom: 16px;
+			}
 
-      input {
-        appearance: none;
-        background: none;
-        outline: none;
-        border: none;
+			a {
+				display: block;
+				padding: 8px 16px;
+				text-align: left;
 
-        display: block;
-        width: 100%;
-        max-width: 400px;
-        padding: 16px;
-        border-radius: 999px;
-        background-color: #EEE;
+				color: #888;
+				font-size: 16px;
+				margin-bottom: 16px;
 
-        transition: 0.4s;
+				background-color: #EEE;
+				border-radius: 999px;
+				text-decoration: none;
 
-        ::placeholder {
-          color: #888;
-        }
+				transition: 0.4s;
 
-        &:focus, &:valid {
-          background-color: #313131;
-          color: #FFF;
-        }
-      }
-    }
-  }
+				&:hover {
+					background-color: #313131;
+					color: #AAA;
+				}
+			}
+		}
+	}
 
-  .anime-list {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 32px;
-    margin: 32px -8px 0px;
+	main {
+		display: flex;
+    flex-direction: column;
+		padding: 0px 16px;
 
-    .anime-card {
-      flex: 1 1 33.333%;
-      max-width: 33.333%;
-      padding: 16px 8px;
+		.main-head {
+			display: flex;
+			justify-content: flex-end;
 
-      a {
-        text-decoration: none;
-      }
+			.search-box {
+				display: flex;
+				justify-content: flex-end;
+				flex: 1 1 0%;
 
-      figure {
-        display: block;
-        margin-bottom: 16px;
+				input {
+					appearance: none;
+					background: none;
+					outline: none;
+					border: none;
 
-        img {
-          display: block;
-          width: 100%;
-          height: 350px;
-          object-fit: cover;
-          border-radius: 16px;
-          box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.15);
+					display: block;
+					width: 100%;
+					max-width: 400px;
+					padding: 16px;
+					border-radius: 999px;
+					background-color: #EEE;
 
-          transition: 0.4s;
-        }
-      }
+					transition: 0.4s;
 
-      h3 {
-        color: #313131;
-      }
+					::placeholder {
+						color: #888;
+					}
 
-      &:hover {
-        figure {
-          img {
-            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.25);
-            transform: scale(1.05);
-          }
-        }
-      }
-    }
-  }
+					&:focus, &:valid {
+						background-color: #313131;
+						color: #FFF;
+					}
+				}
+			}
+		}
+
+		.anime-list {
+			display: flex;
+			flex-wrap: wrap;
+			margin-top: 32px;
+			margin: 32px -8px 0px;
+
+			.anime-card {
+				flex: 1 1 33.333%;
+				max-width: 33.333%;
+				padding: 16px 8px;
+
+				a {
+					text-decoration: none;
+				}
+
+				figure {
+					display: block;
+					margin-bottom: 16px;
+
+					img {
+						display: block;
+						width: 100%;
+						height: 350px;
+						object-fit: cover;
+						border-radius: 16px;
+						box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.15);
+
+						transition: 0.4s;
+					}
+				}
+
+				h3 {
+					color: #313131;
+				}
+
+				&:hover {
+					figure {
+						img {
+							box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.25);
+							transform: scale(1.05);
+						}
+					}
+				}
+			}
+		}
+	}
 }

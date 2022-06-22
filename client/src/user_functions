@@ -1,0 +1,103 @@
+//  function retrieveWatched(user) {
+//     axios({
+//       method: 'GET',
+//       url: '/watched',
+//       data: {
+//         user
+//       }
+//     })
+//     .then((res) => {
+//       setWatched((s) => s.concat(res.data.results));
+//     })
+//     .catch((err) => {
+//       console.log('Error, retrieveWatched:', err);
+//     });
+//   }
+
+//   function retrieveToWatch(user) {
+//     axios({
+//       method: 'GET',
+//       url: '/towatch',
+//       data: {
+//         user
+//       }
+//     })
+//     .then((res) => {
+//       setToWatch((s) => s.concat(res.data.results));
+//     })
+//     .catch((err) => {
+//       console.log('Error, retrieveToWatch:', err);
+//     });
+//   }
+
+//   function addToWatch(e) {
+//     let show = e.target.value;
+//     axios({
+//       method: 'POST',
+//       url: '/towatch',
+//       data: {
+//         user,
+//         show
+//       }
+//     })
+//     .then((res) => {
+//       setToWatch((s) => s.concat(res.data.results));
+//     })
+//     .catch((err) => {
+//       console.log('Error, retrieveToWatch:', err);
+//     });
+//   }
+
+//   function addWatched(e) {
+//     let show = e.target.value;
+//     axios({
+//       method: 'POST',
+//       url: '/watched',
+//       data: {
+//         user,
+//         show
+//       }
+//     })
+//     .then((res) => {
+//       setToWatch((s) => s.concat(res.data.results));
+//     })
+//     .catch((err) => {
+//       console.log('Error, retrieveToWatch:', err);
+//     });
+//   }
+
+//   function removeToWatch(e) {
+//     let show = e.target.value;
+//     axios({
+//       method: 'DELETE',
+//       url: '/towatch',
+//       data: {
+//         user,
+//         show
+//       }
+//     })
+//     .then((res) => {
+//       setToWatch((s) => s.concat(res.data.results));
+//     })
+//     .catch((err) => {
+//       console.log('Error, retrieveToWatch:', err);
+//     });
+//   }
+
+//   function removeWatched(e) {
+//     let show = e.target.value;
+//     axios({
+//       method: 'DELETE',
+//       url: '/watched',
+//       data: {
+//         user,
+//         show
+//       }
+//     })
+//     .then((res) => {
+//       setToWatch((s) => s.concat(res.data.results));
+//     })
+//     .catch((err) => {
+//       console.log('Error, retrieveToWatch:', err);
+//     });
+//   }

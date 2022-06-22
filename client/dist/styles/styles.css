@@ -24,29 +24,54 @@ header h1 strong {
   color: #313131;
 }
 
-main {
-  flex: 1 1 0%;
+.content-wrap {
+  display: flex;
+}
+.content-wrap aside {
+  flex: 1 1 250px;
+  max-width: 250px;
+  padding-right: 16px;
+}
+.content-wrap aside nav {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.content-wrap aside nav h3 {
+  color: #313131;
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+.content-wrap aside nav a {
+  display: block;
+  padding: 8px 16px;
+  text-align: left;
+  color: #888;
+  font-size: 16px;
+  margin-bottom: 16px;
+  background-color: #EEE;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: 0.4s;
+}
+.content-wrap aside nav a:hover {
+  background-color: #313131;
+  color: #AAA;
+}
+.content-wrap main {
+  display: flex;
+  flex-direction: column;
   padding: 0px 16px;
 }
-main .main-head {
+.content-wrap main .main-head {
   display: flex;
   justify-content: flex-end;
 }
-main .main-head .search-box {
+.content-wrap main .main-head .search-box {
   display: flex;
   justify-content: flex-end;
   flex: 1 1 0%;
 }
-main .main-head .search-box .visually-hidden {
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  height: 1px;
-  overflow: hidden;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-main .main-head .search-box input {
+.content-wrap main .main-head .search-box input {
   appearance: none;
   background: none;
   outline: none;
@@ -59,32 +84,32 @@ main .main-head .search-box input {
   background-color: #EEE;
   transition: 0.4s;
 }
-main .main-head .search-box input ::placeholder {
+.content-wrap main .main-head .search-box input ::placeholder {
   color: #888;
 }
-main .main-head .search-box input:focus, main .main-head .search-box input:valid {
+.content-wrap main .main-head .search-box input:focus, .content-wrap main .main-head .search-box input:valid {
   background-color: #313131;
   color: #FFF;
 }
-main .anime-list {
+.content-wrap main .anime-list {
   display: flex;
   flex-wrap: wrap;
   margin-top: 32px;
   margin: 32px -8px 0px;
 }
-main .anime-list .anime-card {
+.content-wrap main .anime-list .anime-card {
   flex: 1 1 33.333%;
   max-width: 33.333%;
   padding: 16px 8px;
 }
-main .anime-list .anime-card a {
+.content-wrap main .anime-list .anime-card a {
   text-decoration: none;
 }
-main .anime-list .anime-card figure {
+.content-wrap main .anime-list .anime-card figure {
   display: block;
   margin-bottom: 16px;
 }
-main .anime-list .anime-card figure img {
+.content-wrap main .anime-list .anime-card figure img {
   display: block;
   width: 100%;
   height: 350px;
@@ -93,10 +118,10 @@ main .anime-list .anime-card figure img {
   box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.15);
   transition: 0.4s;
 }
-main .anime-list .anime-card h3 {
+.content-wrap main .anime-list .anime-card h3 {
   color: #313131;
 }
-main .anime-list .anime-card:hover figure img {
+.content-wrap main .anime-list .anime-card:hover figure img {
   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.25);
   transform: scale(1.05);
 }

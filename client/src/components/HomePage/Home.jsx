@@ -6,38 +6,32 @@ import SearchCard from './components/SearchCard'
 
 // Huzzah for jsx!
 export default function Home(props) {
-
-
    return (
      <main>
-     <h1>What to Watch</h1>
        <div className="main-head">
-      <Search search={props.search} handleSearch={props.handleSearch} setSearch={props.SetSearch}/>
+      <Search search={props.search} HandleSearch={props.HandleSearch} SetSearch={props.SetSearch}/>
       </div>
-      <div className="searchList">
-        <ul className="list">
-          {searchList.map((show) => (
-            <SearchCard key={show.data.mal_id} show={show} />
+      <div className="anime-list">
+          {props.animeList.map((anime) => (
+            <SearchCard key={anime.mal_id} anime={anime} />
           ))}
-        </ul>
       </div>
-      <h2>To Watch</h2>
+      <h3>To Watch</h3>
       <div className="toWatch">
-        <ul className="userShowList">
+        {/* <ul className="userShowList">
           {toWatch.map((show) => (
             <ToWatchCard key={show.data.mal_id} show={show} />
           ))}
-        </ul>
+        </ul> */}
       </div>
-      <h2>Watched</h2>
+      <h3>Watched</h3>
       <div className="Watched">
-        <ul className="userShowList">
+        {/* <ul className="userShowList">
           {toWatch.map((show) => (
             <WatchedCard key={show.data.mal_id} show={show} />
           ))}
-        </ul>
+        </ul> */}
       </div>
-
     </main>
     )
 }
