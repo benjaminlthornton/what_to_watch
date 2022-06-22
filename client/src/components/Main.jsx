@@ -4,33 +4,40 @@ import Sidebar from './Sidebar';
 import Home from './HomePage/Home';
 
 export default function Main() {
-    const [animeList, SetAnimeList] = useState([]);
-    const [topAnime, SetTopAnime] = useState([]);
-    const [search, SetSearch] = useState("");
+	const [animeList, SetAnimeList] = useState([]);
+	const [topAnime, SetTopAnime] = useState([]);
+	const [toWatchList, SetToWatch] = useState([]);
+	const [search, SetSearch] = useState("");
 
-    const GetTopAnime = async () => {
-      const temp = await fetch(`https://api.jikan.moe/v3/top/anime/1/bypopularity`)
-        .then(res => res.json());
+	const GetTopAnime = async () => {
+		const temp = await fetch(`https://api.jikan.moe/v3/top/anime/1/bypopularity`)
+			.then(res => res.json());
 
-      SetTopAnime(temp.top.slice(0, 5));
-    }
+		SetTopAnime(temp.top.slice(0, 5));
+	}
 
-    const HandleSearch = e => {
-      e.preventDefault();
+	const HandleSearch = e => {
+		e.preventDefault();
 
-      FetchAnime(search);
-    }
+		FetchAnime(search);
+	}
 
-    const FetchAnime = async (query) => {
-      const temp = await fetch(`https://api.jikan.moe/v3/search/anime?q=${query}&order_by=title&sort=asc&limit=10`)
-        .then(res => res.json());
+	const FetchAnime = async (query) => {
+		const temp = await fetch(`https://api.jikan.moe/v3/search/anime?q=${query}&order_by=title&sort=asc&limit=10`)
+			.then(res => res.json());
 
-      SetAnimeList(temp.results);
-    }
+		SetAnimeList(temp.results);
+	}
 
-    useEffect(() => {
-      GetTopAnime();
-    }, []);
+  const AddToWatch = (e, anime) => {
+    e.preventDefault();
+    console.log(anime)
+    SetToWatch((r) => r.concat(anime))
+  }
+
+	useEffect(() => {
+		GetTopAnime();
+	}, []);
 
   return (
     <div className="App">
@@ -42,7 +49,11 @@ export default function Main() {
           HandleSearch={HandleSearch}
           search={search}
           SetSearch={SetSearch}
-          animeList={animeList} />
+          animeList={animeList}
+          SetToWatch={SetToWatch}
+          toWatchList={toWatchList}
+          AddToWatch={AddToWatch}
+          />
       </div>
     </div>
   );

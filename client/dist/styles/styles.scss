@@ -13,147 +13,159 @@
 }
 
 header {
-	padding-top: 50px;
-	padding-bottom: 50px;
+  padding-top: 50px;
+  padding-bottom: 50px;
 
-	h1 {
-		color: #AAA;
-		font-size: 36px;
-		font-weight: 400;
-		text-align: center;
+  h1 {
+    color: #AAA;
+    font-size: 36px;
+    font-weight: 400;
+    text-align: center;
 
-		strong {
-			color: #313131;
-		}
-	}
+    strong {
+      color: #313131;
+    }
+  }
 }
 
 .content-wrap {
-	display: flex;
+  display: flex;
 
-	aside {
-		flex: 1 1 250px;
-		max-width: 250px;
-		padding-right: 16px;
+  aside {
+    flex: 1 1 250px;
+    max-width: 250px;
+    padding-right: 16px;
 
-		nav {
-			padding-left: 16px;
-			padding-right: 16px;
+    nav {
+      padding-left: 16px;
+      padding-right: 16px;
 
-			h3 {
-				color: #313131;
-				font-size: 24px;
-				margin-bottom: 16px;
-			}
+      h3 {
+        color: #313131;
+        font-size: 24px;
+        margin-bottom: 16px;
 
-			a {
-				display: block;
-				padding: 8px 16px;
-				text-align: left;
+      }
 
-				color: #888;
-				font-size: 16px;
-				margin-bottom: 16px;
+      a {
+        display: block;
+        padding: 8px 16px;
+        text-align: left;
 
-				background-color: #EEE;
-				border-radius: 999px;
-				text-decoration: none;
+        color: #888;
+        font-size: 16px;
+        margin-bottom: 16px;
 
-				transition: 0.4s;
+        background-color: #EEE;
+        border-radius: 999px;
+        text-decoration: none;
 
-				&:hover {
-					background-color: #313131;
-					color: #AAA;
-				}
-			}
-		}
-	}
+        transition: 0.4s;
 
-	main {
-		display: flex;
-    flex-direction: column;
-		padding: 0px 16px;
+        &:hover {
+          background-color: #313131;
+          color: #AAA;
+        }
+      }
+    }
+  }
 
-		.main-head {
-			display: flex;
-			justify-content: flex-end;
+  main {
+    flex: 1 1 0%;
+    padding: 0px 16px;
 
-			.search-box {
-				display: flex;
-				justify-content: flex-end;
-				flex: 1 1 0%;
 
-				input {
-					appearance: none;
-					background: none;
-					outline: none;
-					border: none;
+    .main-head {
+      display: flex;
+      justify-content: flex-end;
 
-					display: block;
-					width: 100%;
-					max-width: 400px;
-					padding: 16px;
-					border-radius: 999px;
-					background-color: #EEE;
+      .search-box {
+        display: flex;
+        justify-content: flex-end;
+        flex: 1 1 0%;
 
-					transition: 0.4s;
+        input {
+          appearance: none;
+          background: none;
+          outline: none;
+          border: none;
 
-					::placeholder {
-						color: #888;
-					}
+          display: block;
+          width: 100%;
+          max-width: 400px;
+          padding: 16px;
+          border-radius: 999px;
+          background-color: #EEE;
 
-					&:focus, &:valid {
-						background-color: #313131;
-						color: #FFF;
-					}
-				}
-			}
-		}
+          transition: 0.4s;
 
-		.anime-list {
-			display: flex;
-			flex-wrap: wrap;
-			margin-top: 32px;
-			margin: 32px -8px 0px;
+          ::placeholder {
+            color: #888;
+          }
 
-			.anime-card {
-				flex: 1 1 33.333%;
-				max-width: 33.333%;
-				padding: 16px 8px;
+          &:focus, &:valid {
+            background-color: #313131;
+            color: #FFF;
+          }
+        }
+      }
+    }
 
-				a {
-					text-decoration: none;
-				}
+    .anime-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      margin-top: 32px;
+      margin: 32px -8px 0px;
 
-				figure {
-					display: block;
-					margin-bottom: 16px;
+      .anime-card {
+        // flex: 1 1 33.333%;
+        display: flex;
+        flex-direction: column;
+        width: 15%;
+        padding: 16px 8px;
+        justify-content: center;
 
-					img {
-						display: block;
-						width: 100%;
-						height: 350px;
-						object-fit: cover;
-						border-radius: 16px;
-						box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.15);
+        a {
+          text-decoration: none;
+          align-self: center;
+        }
 
-						transition: 0.4s;
-					}
-				}
+        figure {
+          display: block;
+          margin-bottom: 16px;
+          // height: 75%
 
-				h3 {
-					color: #313131;
-				}
+          img {
+            display: block;
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 16px;
+            box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.15);
 
-				&:hover {
-					figure {
-						img {
-							box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.25);
-							transform: scale(1.05);
-						}
-					}
-				}
-			}
-		}
-	}
+            transition: 0.4s;
+          }
+        }
+
+        h3 {
+          color: #313131;
+          text-align: center;
+        }
+
+        .add-to-list {
+          align-self: center;
+        }
+
+        &:hover {
+          figure {
+            img {
+              box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.25);
+              transform: scale(1.05);
+            }
+          }
+        }
+      }
+    }
+  }
 }
