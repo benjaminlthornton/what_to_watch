@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const userSchema = new mongoose.Schema({
+const listerSchema = new mongoose.Schema({
   userId: {
     type: Number,
     unique: true,
@@ -13,6 +13,6 @@ const userSchema = new mongoose.Schema({
   },
 });
 
-const User = mongoose.model('User', userSchema)
+const Lister = mongoose.model('Lister', listerSchema)
 
-module.exports = User;
+module.exports = Lister;

@@ -20,14 +20,26 @@ const PORT = process.env.PORT || 3000;
 
 
 app.get('/towatch', (req, res) => {
-  console.log(req.data)
-  watch.getToWatch(req.body)
-  res.sendStatus(201)
+  watch.getToWatch(req.body,(err, results) => {
+    if (err) {
+      res.sendStatus(400);
+    } else {
+      console.log("gettowatch", results)
+      res.status(200).send(results);
+    }
+  })
 })
 
 app.post('/watched', (req, res) => {
-  watch.addWatched(req.body);
-  res.sendStatus(201)
+  console.log(req.body)
+  watch.addWatched(req.body, (err, results) => {
+    if (err) {
+      res.status(400).send(JSON.stringify(err))
+    } else {
+      console.log('addWatched export', results)
+      res.status(201).send(JSON.stringify(results))
+    }
+  });
 });
 
 app.listen(PORT, () => {

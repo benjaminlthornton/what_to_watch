@@ -53,9 +53,12 @@ export default function Main() {
         userId: user,
       }
     })
-    .then(temp => console.log(temp) )
-    .then(() => SetToWatch([temp.toWatchList]))
-    .then(() =>SetWatched([temp.watchedList]))
+    .then(temp => {
+      SetToWatch([temp.data.toWatchList])
+      SetWatched([temp.data.watchedList])
+    })
+    // .then(() => SetToWatch([temp.data.toWatchList]))
+    // .then(() =>SetWatched([temp.data.watchedList]))
     .catch((err) =>{
       console.log('Error fetching user data', err)
     })
@@ -94,7 +97,7 @@ export default function Main() {
     })
     .then((res) => {
       console.log("success dbAddWatch")
-      console.log(res)
+      console.log('dbAddWatched response', res.config.data)
     })
     .catch((err) => {
       console.log('error dbAddToWatch', err)

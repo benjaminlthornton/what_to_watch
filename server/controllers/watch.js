@@ -1,17 +1,8 @@
-const User = require('../../db/models/User')
+const Lister = require('../../db/models/User')
 
-exports.getToWatch = (req, res) => {
-  console.log(req)
-  User.find({}), (err, results) => {
-    if (err) {
-      res.sendStatus(400);
-      res.send(JSON.stringify(err));
-    } else {
-      console.log("gettowatch", results)
-      res.send(JSON.stringify(results));
-      res.sendStatus(200)
-    }
-  }
+exports.getToWatch = (req, callback) => {
+  console.log('inside getToWatch', req)
+  return (Lister.findOne({userId: 1}, callback))
 
 };
 
@@ -40,26 +31,17 @@ exports.getToWatch = (req, res) => {
 //   });
 // };
 
-exports.addWatched = (req, res) => {
+exports.addWatched = (req, callback) => {
   console.log('inside addWatched', req)
-  User.findOneAndUpdate({
+  return (Lister.findOneAndUpdate({
     userId: req.userId
   },
   {
-    userId: req.userId,
     toWatchList: req.toWatchList,
     watchedList: req.watchedList,
   }, {
     upsert: true,
-    useFindAndModify: false,
+    useFindAndModify: true,
     new: true,
-  })
-//     (err, results) => {
-  //   if (err) {
-  //     res.send(JSON.stringify(err))
-  //     res.sendstatus(400)
-  //   } else {
-  //     res.send(JSON.stringify(results))
-  //   }
-  // });
+  }, callback))
 };
