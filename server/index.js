@@ -4,6 +4,7 @@ const axios = require('axios');
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
+const watch = require('./controller/watch')
 
 const app = express();
 app.use(express.json());
@@ -62,6 +63,11 @@ const PORT = process.env.PORT || 3000;
 //     res.sendStatus(err.response.status);
 //   })
 // })
+
+app.get('/towatch', watch.getToWatch);
+app.get('/watched', watch.getWatched);
+app.post('/towatch', watch.addToWatch);
+app.post('/watched', watch.addWatched);
 
 app.listen(PORT, () => {
   console.log(`Listening on: http://localhost:${PORT}`);

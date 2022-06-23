@@ -53,7 +53,7 @@ export default function Main() {
       <Header />
       <div className="content-wrap">
         <Sidebar
-          topAnime={topAnime} />
+          topAnime={topAnime} AddWatched={AddWatched} />
         <Home
           HandleSearch={HandleSearch}
           search={search}

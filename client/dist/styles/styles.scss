@@ -34,6 +34,22 @@ body {
   animation: gradient 15s ease infinite;
 
 }
+button {
+  color: #888;
+  font-size: 16px;
+  margin-bottom: 16px;
+
+  background-color: #EEE;
+  border-radius: 999px;
+  text-decoration: none;
+
+  transition: 0.4s;
+
+  &:hover {
+    background-color: #313131;
+    color: #AAA;
+  }
+}
 
   .content-wrap {
     display: flex;
