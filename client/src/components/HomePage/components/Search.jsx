@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Searched(props) {
   return (
-      <form classsName='search-box' onSubmit={props.HandleSearch}>
+      <form className='search-box' onSubmit={props.HandleSearch}>
       <input
           type="search"
           placeholder="Search anime"

@@ -31,7 +31,7 @@ export default function Main() {
 
   const AddToWatch = (e, anime) => {
     e.preventDefault();
-    console.log(anime)
+    if (toWatchList.indexOf(anime) < 0)
     SetToWatch((r) => r.concat(anime))
   }
 
