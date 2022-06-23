@@ -4,7 +4,8 @@ const axios = require('axios');
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
-const watch = require('./controller/watch')
+const db = require('../db');
+const watch = require('./controllers/watch')
 
 const app = express();
 app.use(express.json());
@@ -15,6 +16,23 @@ app.use(express.static(path.join(__dirname, '../client/dist')));
 // Request variables
 const PORT = process.env.PORT || 3000;
 
+
+
+
+app.get('/towatch', (req, res) => {
+  console.log(req.data)
+  watch.getToWatch(req.body)
+  res.sendStatus(201)
+})
+
+app.post('/watched', (req, res) => {
+  watch.addWatched(req.body);
+  res.sendStatus(201)
+});
+
+app.listen(PORT, () => {
+  console.log(`Listening on: http://localhost:${PORT}`);
+});
 
 // Cookie parser middleware (Practice Apps: Part2 reuse)
 // session_id cookie is now accessible in every route -> req.session_id
@@ -63,12 +81,3 @@ const PORT = process.env.PORT || 3000;
 //     res.sendStatus(err.response.status);
 //   })
 // })
-
-app.get('/towatch', watch.getToWatch);
-app.get('/watched', watch.getWatched);
-app.post('/towatch', watch.addToWatch);
-app.post('/watched', watch.addWatched);
-
-app.listen(PORT, () => {
-  console.log(`Listening on: http://localhost:${PORT}`);
-});

@@ -27,7 +27,7 @@ export default function Home(props) {
       </div>
       <h2>Watched</h2>
       <div className="anime-list">
-          {props.WatchedList.map((anime) => (
+          {props.watchedList.map((anime) => (
             <WatchedCard key={anime.mal_id} anime={anime} />
           ))}
       </div>
