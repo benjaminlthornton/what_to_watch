@@ -24,6 +24,13 @@ header h1 strong {
   color: #313131;
 }
 
+body {
+  background: linear-gradient(-45deg, #794332, #967b32);
+  background-size: 400% 400%;
+  background-attachment: fixed;
+  animation: gradient 15s ease infinite;
+}
+
 .content-wrap {
   display: flex;
 }
@@ -59,6 +66,8 @@ header h1 strong {
 }
 .content-wrap main {
   flex: 1 1 0%;
+  display: flex;
+  flex-flow: column wrap;
   padding: 0px 16px;
 }
 .content-wrap main .main-head {
@@ -67,7 +76,7 @@ header h1 strong {
 }
 .content-wrap main .main-head .search-box {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   flex: 1 1 0%;
 }
 .content-wrap main .main-head .search-box input {
