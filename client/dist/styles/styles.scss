@@ -82,7 +82,11 @@ body {
       display: flex;
       flex-flow: column wrap;
       padding: 0px 16px;
-
+      
+      h3 {
+        color: #313131;
+        text-align: center;
+      }
 
       .main-head {
         display: flex;

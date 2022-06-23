@@ -70,6 +70,10 @@ body {
   flex-flow: column wrap;
   padding: 0px 16px;
 }
+.content-wrap main h3 {
+  color: #313131;
+  text-align: center;
+}
 .content-wrap main .main-head {
   display: flex;
   justify-content: flex-end;
