@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function ToWatchCard({ anime }) {
+export default function ToWatchCard({ anime, AddWatched }) {
   return (
 <article className="anime-card">
 				<figure>
@@ -14,7 +14,7 @@ export default function ToWatchCard({ anime }) {
 					rel="noreferrer">
 					<h3>{ anime.title }</h3>
 				</a>
-			<button className="add-to-list">Add to Watched</button>
+			<button onClick={e => AddWatched(e, anime)} className="add-to-list">Add to Watched</button>
 		</article>
   )
 }

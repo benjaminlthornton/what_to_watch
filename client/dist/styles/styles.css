@@ -25,7 +25,7 @@ header h1 strong {
 }
 
 body {
-  background: linear-gradient(-45deg, #794332, #967b32);
+  background: linear-gradient(-45deg, #c54d29, #528e9a);
   background-size: 400% 400%;
   background-attachment: fixed;
   animation: gradient 15s ease infinite;
@@ -70,7 +70,7 @@ body {
   flex-flow: column wrap;
   padding: 0px 16px;
 }
-.content-wrap main h3 {
+.content-wrap main h2 {
   color: #313131;
   text-align: center;
 }

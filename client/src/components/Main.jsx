@@ -7,6 +7,7 @@ export default function Main() {
 	const [animeList, SetAnimeList] = useState([]);
 	const [topAnime, SetTopAnime] = useState([]);
 	const [toWatchList, SetToWatch] = useState([]);
+	const [WatchedList, SetWatched] = useState([]);
 	const [search, SetSearch] = useState("");
 
 	const GetTopAnime = async () => {
@@ -35,6 +36,14 @@ export default function Main() {
     SetToWatch((r) => r.concat(anime))
   }
 
+  const AddWatched = (e, anime) => {
+    e.preventDefault();
+    if (WatchedList.indexOf(anime) < 0) {
+    SetWatched((r) => r.concat(anime))
+    SetToWatch(toWatchList.filter(show => show.mal_id !== anime.mal_id))
+    }
+  }
+
 	useEffect(() => {
 		GetTopAnime();
 	}, []);
@@ -53,6 +62,8 @@ export default function Main() {
           SetToWatch={SetToWatch}
           toWatchList={toWatchList}
           AddToWatch={AddToWatch}
+          WatchedList={WatchedList}
+          AddWatched={AddWatched}
           />
       </div>
     </div>

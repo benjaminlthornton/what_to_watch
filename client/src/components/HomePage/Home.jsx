@@ -19,19 +19,17 @@ export default function Home(props) {
             <SearchCard key={anime.mal_id} anime={anime} AddToWatch={props.AddToWatch}/>
           ))}
       </div>
-      <h3>To Watch</h3>
+      <h2>To Watch</h2>
       <div className="anime-list">
           {props.toWatchList.map((anime) => (
-            <ToWatchCard key={anime.mal_id} anime={anime} />
+            <ToWatchCard key={anime.mal_id} anime={anime} AddWatched={props.AddWatched} />
           ))}
       </div>
-      <h3>Watched</h3>
-      <div className="Watched">
-        {/* <ul className="userShowList">
-          {toWatch.map((show) => (
-            <WatchedCard key={show.data.mal_id} show={show} />
+      <h2>Watched</h2>
+      <div className="anime-list">
+          {props.WatchedList.map((anime) => (
+            <WatchedCard key={anime.mal_id} anime={anime} />
           ))}
-        </ul> */}
       </div>
     </main>
     )
