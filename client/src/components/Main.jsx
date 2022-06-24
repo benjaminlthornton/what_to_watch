@@ -110,7 +110,7 @@ export default function Main() {
 
 	useEffect(() => {
 		GetTopAnime();
-    FetchUserData();
+    // FetchUserData();
 	}, []);
 
   useEffect(() => {
