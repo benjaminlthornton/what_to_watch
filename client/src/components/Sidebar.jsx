@@ -14,7 +14,7 @@ export default function Sidebar( { topAnime, AddToWatch }) {
 						rel="noreferrer">
 						{ anime.title }
 					</a>
-					<button onClick={e => props.AddToWatch(e, props.anime)} className="add-to-list">Add to Watch List</button>
+					<button onClick={e => AddToWatch(e, anime)} className="add-to-list">Add to Watch List</button>
 					</div>
 				))}
 			</nav>

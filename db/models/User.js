@@ -10,6 +10,7 @@ const listerSchema = new mongoose.Schema({
   },
   watchedList: {
     type: Array,
+    // default: undefined,
   },
 });
 

@@ -54,11 +54,10 @@ export default function Main() {
       }
     })
     .then(temp => {
+      console.log(temp)
       SetToWatch([temp.data.toWatchList])
       SetWatched([temp.data.watchedList])
     })
-    // .then(() => SetToWatch([temp.data.toWatchList]))
-    // .then(() =>SetWatched([temp.data.watchedList]))
     .catch((err) =>{
       console.log('Error fetching user data', err)
     })
@@ -96,7 +95,7 @@ export default function Main() {
       }
     })
     .then((res) => {
-      console.log("success dbAddWatch")
+      // console.log("success dbAddWatch")
       console.log('dbAddWatched response', res.config.data)
     })
     .catch((err) => {
@@ -110,7 +109,7 @@ export default function Main() {
 
 	useEffect(() => {
 		GetTopAnime();
-    // FetchUserData();
+    FetchUserData();
 	}, []);
 
   useEffect(() => {
@@ -125,7 +124,7 @@ export default function Main() {
       <Header />
       <div className="content-wrap">
         <Sidebar
-          topAnime={topAnime} AddWatched={AddWatched} />
+          topAnime={topAnime} AddToWatch={AddToWatch} />
         <Home
           HandleSearch={HandleSearch}
           search={search}
